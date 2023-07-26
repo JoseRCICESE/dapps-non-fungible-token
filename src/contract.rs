@@ -20,6 +20,7 @@ pub struct Contract {
 }
 
 static mut CONTRACT: Option<Contract> = None;
+static mut GREETING: Option<String> = None;
 
 #[no_mangle]
 unsafe extern "C" fn init() {
