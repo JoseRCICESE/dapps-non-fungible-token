@@ -25,6 +25,7 @@ pub struct InitNFT {
     pub collection: Collection,
     pub royalties: Option<Royalties>,
     pub constraints: Constraints,
+    pub priv_data: Option<String>
 }
 
 #[derive(Default, Debug, Encode, Decode, PartialEq, Eq, PartialOrd, Ord, Clone, TypeInfo, Hash)]
@@ -91,6 +92,9 @@ pub enum NFTAction {
         transaction_id: u64,
         minter_id: ActorId,
     },
+    GetPrivData {
+        token_id: TokenId
+    }
 }
 
 #[derive(Debug, Encode, Decode, PartialEq, Eq, PartialOrd, Ord, Clone, TypeInfo, Hash)]
@@ -103,6 +107,9 @@ pub enum NFTEvent {
         owner: ActorId,
         token_id: TokenId,
     },
+    GetPrivData {
+        priv_data: Option<String>
+    },
     IsApproved {
         to: ActorId,
         token_id: TokenId,
@@ -110,7 +117,7 @@ pub enum NFTEvent {
     },
     MinterAdded {
         minter_id: ActorId,
-    },
+    }
 }
 
 #[derive(Default, Debug, Encode, Decode, PartialEq, Eq, PartialOrd, Ord, Clone, TypeInfo, Hash)]

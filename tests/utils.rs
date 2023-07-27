@@ -21,6 +21,7 @@ pub fn init_nft(sys: &System) {
             max_mint_count: Some(100),
             authorized_minters: vec![USERS[0].into()],
         },
+        priv_data: Some("ads".to_string())
     };
 
     let res = nft.send(USERS[0], init_nft);
@@ -141,6 +142,15 @@ pub fn mint_to_actor(nft: &Program, transaction_id: u64, member: [u8; 32]) -> Ru
                 media: "http://".to_string(),
                 reference: "http://".to_string(),
             },
+        },
+    )
+}
+
+pub fn get_priv_data(nft: &Program, from: u64, token_id: u64) -> RunResult {
+    nft.send(
+        from,
+        NFTAction::GetPrivData {
+            token_id: token_id.into(),
         },
     )
 }

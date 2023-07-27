@@ -25,6 +25,7 @@ async fn mint_test() -> Result<()> {
             max_mint_count: Some(100),
             authorized_minters: vec![actor_id],
         },
+        priv_data: Some("ads".to_string())
     }
     .encode();
     let gas_info = api
@@ -94,6 +95,7 @@ async fn burn_test() -> Result<()> {
             max_mint_count: Some(100),
             authorized_minters: vec![actor_id],
         },
+        priv_data: Some("ads".to_string())
     }
     .encode();
     let gas_info = api
@@ -201,6 +203,7 @@ async fn transfer_test() -> Result<()> {
             max_mint_count: Some(100),
             authorized_minters: vec![actor_id],
         },
+        priv_data: Some("ads".to_string())
     }
     .encode();
     let gas_info = api
@@ -291,6 +294,7 @@ async fn owner_test() -> Result<()> {
             max_mint_count: Some(100),
             authorized_minters: vec![actor_id],
         },
+        priv_data: Some("ads".to_string())
     }
     .encode();
     let gas_info = api
@@ -375,6 +379,7 @@ async fn approved() -> Result<()> {
             max_mint_count: Some(100),
             authorized_minters: vec![actor_id],
         },
+        priv_data: Some("ads".to_string())
     }
     .encode();
     let gas_info = api

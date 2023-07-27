@@ -1,7 +1,7 @@
 use gear_lib::non_fungible_token::{io::NFTTransfer, nft_core::*, state::*, token::*};
 use gear_lib_derive::{NFTCore, NFTMetaState, NFTStateKeeper};
 use gmeta::Metadata;
-use gstd::{errors::Result as GstdResult, exec, msg, prelude::*, ActorId, MessageId};
+use gstd::{errors::Result as GstdResult, exec, msg, prelude::*, ActorId, MessageId, debug};
 use hashbrown::HashMap;
 use nft_io::{
     Collection, Constraints, InitNFT, IoNFT, NFTAction, NFTEvent, NFTMetadata, Nft, State,
@@ -21,6 +21,8 @@ pub struct Contract {
 
 static mut CONTRACT: Option<Contract> = None;
 static mut GREETING: Option<String> = None;
+static mut PRIVATE_DATA: Option<String> = None;
+
 
 #[no_mangle]
 unsafe extern "C" fn init() {
@@ -40,6 +42,7 @@ unsafe extern "C" fn init() {
         ..Default::default()
     };
     CONTRACT = Some(nft);
+    PRIVATE_DATA = config.priv_data;
 }
 
 #[no_mangle]
@@ -167,6 +170,19 @@ unsafe extern "C" fn handle() {
                 0,
             )
             .expect("Error during replying with `NFTEvent::Approval`");
+        },
+        NFTAction::GetPrivData { token_id } => {
+            /*let owner = nft.owner;
+            if msg::source() != owner {
+                panic!("You must own this NFT to view this data");
+            }*/
+            msg::reply(
+                NFTEvent::GetPrivData {
+                    priv_data: Some(PRIVATE_DATA.as_ref().unwrap().to_string())
+                },
+                0,
+            )
+            .expect("Error during replying with `NFTEvent::GetPrivData`");
         }
     };
 }
