@@ -82,6 +82,13 @@ make all
 make
 ```
 
+#What's new!!!
+
+New NFT Action and Event GetPrivData:
+GetPrivData will provide a secret value that the contract hides from anyone except for the contract owner.
+It's supposed to address cases like providing credentials for a sensing device remote API like a fitbit, intelligent pacemakers, etc.
+
+
 ## License
 
 The source code is licensed under the [MIT license](LICENSE).
