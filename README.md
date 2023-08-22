@@ -82,7 +82,7 @@ make all
 make
 ```
 
-#What's new!!!
+###What's new!!!
 
 New NFT Action and Event GetPrivData:
 GetPrivData will provide a secret value that the contract hides from anyone except for the contract owner.
