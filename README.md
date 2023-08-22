@@ -90,7 +90,10 @@ It's supposed to address cases like providing credentials for a sensing device r
 
 ## How to
 Send a message to the program introducing contract owner key:
-![Sensing message to the contract](./sen)
+![Sensing message to the contract](send message getPrivData.png)
+
+Receive credentials from the contract
+![Sensing message to the contract](receive secret.png)
 
 
 
