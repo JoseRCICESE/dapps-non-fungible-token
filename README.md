@@ -90,12 +90,14 @@ It's supposed to address cases like providing credentials for a sensing device r
 
 ## How to
 Send a message to the program introducing contract owner key:
+
 ![Sensing message to the contract](sendMessageGetPrivData.png)
 
-Receive credentials from the contract
+Receive credentials from the contract:
+
 ![Sensing message to the contract](receiveSecret.png)
 
-
+This way a patient can provide access to its sensing records to his doctor or anyone interested.
 
 ## License
 
