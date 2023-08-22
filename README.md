@@ -88,6 +88,11 @@ New NFT Action and Event GetPrivData:
 GetPrivData will provide a secret value that the contract hides from anyone except for the contract owner.
 It's supposed to address cases like providing credentials for a sensing device remote API like a fitbit, intelligent pacemakers, etc.
 
+## How to
+Send a message to the program introducing contract owner key:
+![Sensing message to the contract](./sen)
+
+
 
 ## License
 
